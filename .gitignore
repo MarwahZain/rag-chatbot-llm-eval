@@ -1,0 +1,6 @@
+.venv/
+.env
+__pycache__/
+.deepeval/
+.pytest_cache/
+.DS_Store
