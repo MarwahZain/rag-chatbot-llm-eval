@@ -28,7 +28,7 @@ Schedule: weekend 1 (Thu 26 to Sun 29 Nov) covers M0 to M6, weekend 2 (3 to 6 De
 
 ## M1: RAG chatbot
 
-- [ ] Three FAQ files for the fictional "Falcon Bank": `accounts.md`, `cards.md`, `transfers.md`
+- [ ] Three FAQ files for the fictional "YAH Bank": `accounts.md`, `cards.md`, `transfers.md`
 - [ ] Every answer has checkable facts (fees, rates, limits, times) so hallucinations are easy to spot
 - [ ] Chunking: one chunk per `## ` question
 - [ ] Retrieval: in-memory Chroma collection, top-k = 3
