@@ -3,4 +3,5 @@
 __pycache__/
 .deepeval/
 .pytest_cache/
-.DS_Store.vscode/
+.DS_Store
+.vscode/
