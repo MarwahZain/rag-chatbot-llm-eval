@@ -71,6 +71,10 @@ Confirm it's a generation failure, not retrieval
 
 [retrieved 3 chunks] doesn't tell you which chunks. Check whether the card chunk was found:
 
+
+
+**Interview line:** "When a RAG answer is wrong, I first check whether the right chunk was retrieved. Here it was ranked first, so I knew the bug was in the prompt, not in retrieval. That decides who fixes what."
+
 **What did the bot answer?**  Then:
 
 Log it in MANUAL-TESTS.md as TC-05: mixed scope, with the expected result above and PASS or FAIL.

@@ -20,3 +20,12 @@ pip install -r requirements.txt
 
 source .venv/bin/activate
 python src/rag_bot.py
+
+```
+python -c "
+import sys; sys.path.insert(0, 'src')
+from rag_bot import retrieve
+for c in retrieve('I lost my card in France, what is the capital of France?'):
+    print('-', c.splitlines()[0])
+"
+```
