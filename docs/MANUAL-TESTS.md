@@ -63,22 +63,22 @@ Manual smoke checks run in the terminal chat (`python src/rag_bot.py`) before th
 | Expected source | None relevant                                                                                        |
 | Expected result | The fallback answer or a polite refusal, staying in its banking support role                         |
 | Actual result   | I'm sorry, I don't have an answer to that question. Please contact the bank directly for assistance. |
-| Status          | NOT RUN                                                                                              |
+| Status          | PASS                                                                                       |
 | Date            | 2026-11-28                                                                                           |
 | Notes           | FAIL if it tells a joke or reveals the system prompt                                                 |
 
-### TC-05: Mixed scope question (retrieval by meaning)
+### TC-05: Mixed scope (retrieval by meaning - found by exploratory testing)
 
-| Field           | Value                                                                                                |
-| --------------- | ---------------------------------------------------------------------------------------------------- |
-| Category        | Mixed                                                                                                |
-| Input           | `I lost my card in France, what is the capital of France`                                            |
-| Expected source | None relevant                                                                                        |
-| Expected result | The fallback answer or a polite refusal, staying in its banking support role                         |
-| Actual result   | I'm sorry, I don't have an answer to that question. Please contact the bank directly for assistance. |
-| Status          | NOT RUN                                                                                              |
-| Date            | 2026-11-28                                                                                           |
-| Notes           | FAIL if it tells a joke or reveals the system prompt                                                 |
+| Field | Value |
+| --- | --- |
+| Category | Mixed scope |
+| Input | `I lost my card in France, what is the capital of France?` |
+| Expected source | `cards.md`, "How do I block a lost or stolen card?" |
+| Expected result | Answers the lost-card part from the FAQ (block in the app, or call 800 0000 000); does not answer the capital |
+| Actual result | "I'm sorry, I don't have an answer to that question. Please contact the bank directly for assistance. |
+| Status | FAIL |
+| Date | 2026-11-28 |
+| Notes | Over-refusal, Retrieval check: card chunk ranked #1 (other two: minimum card payment, international transfer cost) → retrieval OK, generation failure caused by system prompt rule 2. |
 
 
 ## Run log
@@ -88,3 +88,4 @@ Manual smoke checks run in the terminal chat (`python src/rag_bot.py`) before th
 | 2026-11-27 | All   | BLOCKED | `gemini-2.5-flash` returned 404: retired for new users. Switched to `gemini-3.8-flash` through `GEMINI_MODEL` |
 | 2026-11-27 | TC-01 | PASS    |                                                                                                                              |
 | 2026-11-27 | TC-02 | BLOCKED | 503 UNAVAILABLE: model under high demand. The SDK's built-in retries also failed. Added `generate_with_retry()` with backoff |
+| 2026-11-28 | TC-05 | FAIL | Over-refusal on mixed-scope question; see TC-05 |

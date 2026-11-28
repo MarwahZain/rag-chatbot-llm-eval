@@ -60,6 +60,16 @@ Your system prompt says: "If the context does not contain the answer, reply exac
 - give only the fallback ❌ (unhelpful, since a lost card is urgent)
 
 Each run might even pick differently. _That's non-determinism at work_.
+First run, the bot replied to me with: I'm sorry, I don't have an answer to that question. Please contact the bank directly for assistance.
+
+From a bank's point of view this is worse than answering "Paris". It's an over-refusal: the safety rule fired too broadly and blocked a legitimate, urgent request.
+
+Likely cause
+
+Rule 2 in your system prompt: "If the context does not contain the answer, reply exactly: [fallback]". The model saw a question it couldn't fully answer and applied the rule to the whole message. The prompt never says what to do with a partially answerable question.
+Confirm it's a generation failure, not retrieval
+
+[retrieved 3 chunks] doesn't tell you which chunks. Check whether the card chunk was found:
 
 **What did the bot answer?**  Then:
 
