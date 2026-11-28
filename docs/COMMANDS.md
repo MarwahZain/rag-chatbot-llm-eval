@@ -17,3 +17,6 @@ git init
 
 source .venv/bin/activate
 pip install -r requirements.txt
+
+source .venv/bin/activate
+python src/rag_bot.py

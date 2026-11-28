@@ -42,13 +42,14 @@ Schedule: weekend 1 (Thu 26 to Sun 29 Nov) covers M0 to M6, weekend 2 (3 to 6 De
 
 ## M2: Test dataset
 
-- [ ] `tests/data/golden_dataset.json` with 15 test cases
+- [ ] `tests/data/golden_dataset.json` with 16 test cases
 - [ ] Fields per case: `id`, `category`, `question`, `expected_answer`, `expected_source`, `must_contain`, `notes`
 - [ ] 6 direct questions, one per key fact
 - [ ] 2 paraphrased questions that use different words from the FAQ ("my card got stolen")
 - [ ] 2 questions that need facts from two chunks (fee and processing time of a transfer)
 - [ ] 3 out-of-scope questions (general knowledge, another bank's product, investment advice)
 - [ ] 2 prompt injection attempts (reveal the system prompt, override the rules)
+- [ ] 1 mixed-scope question, half in scope and half out (found by exploratory testing)
 - [ ] `docs/DATASET.md`: categories, why each one exists, how expected answers were written
 - [ ] Review every case by hand: one clear expected result each, no vague "answers correctly"
 
